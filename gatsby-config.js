@@ -25,13 +25,13 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify-cms`
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography`
-    //   }
-    // }
+    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `${__dirname}/src/utils/typography`
+      }
+    }
     // `gatsby-transformer-sharp`,
     // `gatsby-plugin-sharp`,
   ]

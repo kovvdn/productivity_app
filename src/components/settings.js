@@ -26,10 +26,10 @@ class Settings extends Component {
   handleForm = e => {
     e.preventDefault();
     if (
+      !this.state.selectedProduct ||
       this.props.products.some(
         item => item.label === this.state.selectedProduct.label
-      ) ||
-      !this.state.selectedProduct
+      )
     ) {
       return;
     }

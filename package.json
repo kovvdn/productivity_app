@@ -29,6 +29,7 @@
     "react-typography": "^0.16.18",
     "styled-components": "^4.1.3",
     "typography": "^0.16.18",
+    "typography-theme-bootstrap": "^0.16.18",
     "typography-theme-lincoln": "^0.16.18"
   },
   "keywords": [
