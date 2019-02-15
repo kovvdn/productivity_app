@@ -19,7 +19,6 @@ module.exports = {
     `gatsby-plugin-offline`,
 
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,6 +40,7 @@ module.exports = {
         path: `${__dirname}/static/assets/`
       }
     },
+    `gatsby-transformer-remark`,
 
     {
       resolve: `gatsby-plugin-typography`,

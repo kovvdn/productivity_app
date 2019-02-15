@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 
@@ -6,9 +6,7 @@ import { ListGroup, Form, Row, Col, Button } from "react-bootstrap";
 
 import { DeleteButton } from "./styles/customButtons";
 
-import products from "../products";
-
-class Settings extends Component {
+class Settings extends PureComponent {
   state = {
     selectedProduct: null
   };
@@ -43,13 +41,14 @@ class Settings extends Component {
     return (
       <>
         <Form onSubmit={this.handleForm}>
+          {console.log("SETINGS", this.props)}
           <Form.Group as={Row}>
             <Form.Label column sm={3}>
               Добавить продукцию:
             </Form.Label>
             <Col sm={7}>
               <Select
-                options={products}
+                options={this.props.options}
                 value={this.state.selectedProduct}
                 onChange={this.handleSelect}
                 placeholder="Выбрать..."
