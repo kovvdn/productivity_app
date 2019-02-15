@@ -41,7 +41,6 @@ class Settings extends PureComponent {
     return (
       <>
         <Form onSubmit={this.handleForm}>
-          {console.log("SETINGS", this.props)}
           <Form.Group as={Row}>
             <Form.Label column sm={3}>
               Добавить продукцию:

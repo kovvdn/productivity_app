@@ -7,7 +7,6 @@ import ResultTable from "../components/resultTable";
 import withHandledData from "../components/withHandledData";
 
 const IndexPage = props => {
-  console.log(props);
   return (
     <Layout clearOutputTable={props.clearOutput}>
       {({ products }) => (

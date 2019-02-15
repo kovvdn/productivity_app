@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
+import Helmet from "react-helmet";
 
 import Header from "./header";
 import Settings from "./settings";
@@ -34,7 +35,7 @@ const Layout = ({ children, ...props }) => (
       }
     `}
   >
-    {({ allMarkdownRemark }) => {
+    {({ allMarkdownRemark, site }) => {
       const options = allMarkdownRemark.edges.reduce((acc, edge) => {
         const option = {
           value: edge.node.frontmatter.factor,
@@ -43,30 +44,35 @@ const Layout = ({ children, ...props }) => (
         return acc.concat(option);
       }, []);
       return (
-        <PageWrapper>
+        <>
           <GlobalStyles />
-          <Toggle>
-            {({ isOn, toggle }) => (
-              <>
-                <Header
-                  openSettings={toggle}
-                  clearOutputTable={props.clearOutputTable}
-                />
-                <Modal show={isOn} close={toggle}>
-                  <Settings
-                    options={options}
-                    updateProductList={props.updateStorage}
-                    products={props.data}
+          <Helmet title={site.siteMetadata.title}>
+            <html lang="en" />
+          </Helmet>
+          <PageWrapper>
+            <Toggle>
+              {({ isOn, toggle }) => (
+                <>
+                  <Header
+                    openSettings={toggle}
+                    clearOutputTable={props.clearOutputTable}
                   />
-                </Modal>
-              </>
-            )}
-          </Toggle>
-          <Content>
-            <main>{children({ products: props.data })}</main>
-          </Content>
-          <Footer>© {new Date().getFullYear()}</Footer>
-        </PageWrapper>
+                  <Modal show={isOn} close={toggle}>
+                    <Settings
+                      options={options}
+                      updateProductList={props.updateStorage}
+                      products={props.data}
+                    />
+                  </Modal>
+                </>
+              )}
+            </Toggle>
+            <Content>
+              <main>{children({ products: props.data })}</main>
+            </Content>
+            <Footer>© {new Date().getFullYear()}</Footer>
+          </PageWrapper>
+        </>
       );
     }}
   </StaticQuery>
