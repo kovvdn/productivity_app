@@ -33,13 +33,13 @@ module.exports = {
         path: `${__dirname}/src/data/`
       }
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `img`,
-        path: `${__dirname}/static/assets/`
-      }
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `img`,
+    //     path: `${__dirname}/static/assets/`
+    //   }
+    // },
     `gatsby-transformer-remark`,
 
     {
