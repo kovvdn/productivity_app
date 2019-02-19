@@ -18,7 +18,8 @@ class InputForm extends Component {
     product: null,
     manufactured: 0,
     workers: 19,
-    downtime: 0
+    downtime: 0,
+    syllabus: 100
   };
 
   handleSelect = product => {
@@ -35,7 +36,6 @@ class InputForm extends Component {
   handleForm = e => {
     e.preventDefault();
     if (!this.state.product) return;
-
     this.props.handleInputData(this.state);
   };
 
@@ -46,12 +46,26 @@ class InputForm extends Component {
           <Form.Label column sm="4">
             Продукция:
           </Form.Label>
-          <Col sm="8">
+          <Col sm="6">
             <Select
               options={this.props.products}
               value={this.state.product}
               onChange={this.handleSelect}
               placeholder="Выберите производимую продукцию"
+            />
+          </Col>
+          <Col sm="2">
+            <Form.Control
+              name="syllabus"
+              type="number"
+              value={this.state.syllabus}
+              onChange={this.handleInput}
+              title="Выработка"
+              onFocus={e => this.setState({ [e.currentTarget.name]: "" })}
+              onBlur={e =>
+                !this.state[e.currentTarget.name] &&
+                this.setState({ [e.currentTarget.name]: 100 })
+              }
             />
           </Col>
         </Form.Group>
@@ -66,6 +80,14 @@ class InputForm extends Component {
                 value={this.state[item.name]}
                 name={item.name}
                 onChange={this.handleInput}
+                onFocus={() =>
+                  this.setState({
+                    [item.name]: item.name === "workers" ? 19 : ""
+                  })
+                }
+                onBlur={() =>
+                  !this.state[item.name] && this.setState({ [item.name]: 0 })
+                }
               />
             </Col>
           </Form.Group>

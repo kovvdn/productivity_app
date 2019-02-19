@@ -28,12 +28,14 @@ const withHandledData = Comp =>
       product: { label, value },
       workers,
       manufactured,
-      downtime
+      downtime,
+      syllabus
     }) => {
       const { output, worktime } = this.state;
+      console.log(syllabus);
 
       const requiredRate = Math.round(
-        ((worktime - downtime) / value) * workers
+        (((worktime - downtime) / value) * workers * syllabus) / 100
       );
       const percentage =
         Math.round((manufactured / requiredRate) * 100 * 100) / 100;
