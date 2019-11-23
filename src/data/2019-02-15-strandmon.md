@@ -1,5 +1,5 @@
 ---
 label: STRANDMON
-factor: 34.9
+factor: 30.31
 ---
 
