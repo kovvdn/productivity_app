@@ -1,5 +1,5 @@
 ---
 label: EVERTSBERG SB3
-factor: 95.1
+factor: 95
 ---
 
